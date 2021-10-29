@@ -1,6 +1,9 @@
 package ch.rmisteli.sfgdi;
 
+import ch.rmisteli.sfgdi.controller.ConstructorInjectedController;
 import ch.rmisteli.sfgdi.controller.MyController;
+import ch.rmisteli.sfgdi.controller.PropertyInjectedController;
+import ch.rmisteli.sfgdi.controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -9,13 +12,26 @@ import org.springframework.context.ApplicationContext;
 public class SfgDiApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext cfx = SpringApplication.run(SfgDiApplication.class, args);
+		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
-		MyController myController = (MyController) cfx.getBean("myController");
+		MyController myController = (MyController) ctx.getBean("myController");
 
 		String greeting = myController.sayHello();
 
 		System.out.println(greeting);
+
+		System.out.println(" ----  Property");
+		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
+		System.out.println(propertyInjectedController.getGreeting());
+
+		System.out.println(" ---- Setter");
+		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+		System.out.println(setterInjectedController.getGreeting());
+
+		System.out.println(" ---- Constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.getGreeting());
+
 	}
 
 }
