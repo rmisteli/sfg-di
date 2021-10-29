@@ -1,9 +1,6 @@
 package ch.rmisteli.sfgdi;
 
-import ch.rmisteli.sfgdi.controller.ConstructorInjectedController;
-import ch.rmisteli.sfgdi.controller.MyController;
-import ch.rmisteli.sfgdi.controller.PropertyInjectedController;
-import ch.rmisteli.sfgdi.controller.SetterInjectedController;
+import ch.rmisteli.sfgdi.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println(" ---- Primary");
 		MyController myController = (MyController) ctx.getBean("myController");
