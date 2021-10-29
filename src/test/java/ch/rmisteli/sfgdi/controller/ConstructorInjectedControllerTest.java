@@ -1,6 +1,6 @@
 package ch.rmisteli.sfgdi.controller;
 
-import ch.rmisteli.sfgdi.service.GreetingServiceImpl;
+import ch.rmisteli.sfgdi.service.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class ConstructorInjectedControllerTest {
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
+        controller = new ConstructorInjectedController(new ConstructorGreetingService());
     }
 
     @Test
