@@ -1,6 +1,7 @@
 package ch.rmisteli.sfgdi;
 
 import ch.rmisteli.sfgdi.controller.*;
+import ch.rmisteli.sfgdi.datasource.FakeDataSource;
 import ch.rmisteli.sfgdi.service.PrototypeBean;
 import ch.rmisteli.sfgdi.service.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -49,6 +50,10 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcUrl());
 	}
 
 }
