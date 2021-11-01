@@ -1,5 +1,6 @@
 package ch.rmisteli.sfgdi;
 
+import ch.rmisteli.sfgdi.config.SfgConfiguration;
 import ch.rmisteli.sfgdi.controller.*;
 import ch.rmisteli.sfgdi.datasource.FakeDataSource;
 import ch.rmisteli.sfgdi.service.PrototypeBean;
@@ -54,6 +55,13 @@ public class SfgDiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcUrl());
+
+		System.out.println(" ---- Config Props Bean");
+		SfgConfiguration sfgConfiguration = ctx.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcUrl());
+
 	}
 
 }
