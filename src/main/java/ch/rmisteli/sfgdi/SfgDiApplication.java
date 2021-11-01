@@ -1,6 +1,7 @@
 package ch.rmisteli.sfgdi;
 
 import ch.rmisteli.sfgdi.config.SfgConfiguration;
+import ch.rmisteli.sfgdi.config.SfgConstructorConfig;
 import ch.rmisteli.sfgdi.controller.*;
 import ch.rmisteli.sfgdi.datasource.FakeDataSource;
 import ch.rmisteli.sfgdi.service.PrototypeBean;
@@ -51,6 +52,7 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+		System.out.println(" ---- Fake Data Source");
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
@@ -62,6 +64,11 @@ public class SfgDiApplication {
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcUrl());
 
+		System.out.println(" ---- Constructor Binding");
+		SfgConstructorConfig sfgConstructorConfig = ctx.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcUrl());
 	}
 
 }
